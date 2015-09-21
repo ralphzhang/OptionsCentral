@@ -20,8 +20,8 @@ def getProfitValue(type, stockPrice, strike):
         
             
 def main():
-    #PortfolioData= 'Strategy/' + 'Long Butterfly.csv'
-    PortfolioData= '../Strategy/' + 'Bear Put Spread.csv'
+    # PortfolioData= 'Strategy/' + 'Long Butterfly.csv'
+    PortfolioData = '../Strategy/' + 'Bear Put Spread.csv'
 
     try:
         qd = open(PortfolioData, 'r')
@@ -43,7 +43,7 @@ def main():
     riskfreeRate = float(first[2])
     optionStyle = first[3]
     
-    daysFromToday = second[1]
+    daysFromToday = float(second[1])
     plVolatility = float(second[2])
     plRiskfreeRate = float(second[3])
     plMin = float(second[4])
@@ -73,15 +73,15 @@ def main():
 
             totalPremium += float(data.Primium[i]) * positionFactor * quantity
                 
-            theTodayValue = bs.getValue(data.Buy_Sell[i].lower(), 
-                                plCurrent, 
-                                float(data.Strike[i]), 
-                                plVolatility, 
-                                float(data.ExpiryDays[i]) / 365.0, 
+            theTodayValue = bs.getValue(data.Buy_Sell[i].lower(),
+                                plCurrent,
+                                float(data.Strike[i]),
+                                plVolatility,
+                                (float(data.ExpiryDays[i]) - daysFromToday) / 365.0,
                                 riskfreeRate)
                                 
-            theExpiryValue = getProfitValue(data.Buy_Sell[i].lower(), 
-                                plCurrent, 
+            theExpiryValue = getProfitValue(data.Buy_Sell[i].lower(),
+                                plCurrent,
                                 float(data.Strike[i]))
             
             todayValue += theTodayValue * positionFactor * quantity
