@@ -54,5 +54,5 @@ for i in data.index:
 print('Calculated Implied Vol for %d Options' % len(data.index))
 data = data.join(impvol)
 
-data.to_csv("Result_Data.csv")
+data.to_csv('results/' + 'Result_Data.csv')
 print('Calculating Result has been saved to \"Result_Data.csv\"')

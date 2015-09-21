@@ -93,7 +93,7 @@ def main():
         
     print results
         
-    fo = open("ResultOfPortfolio.csv", "wb")
+    fo = open('results/' + 'ResultOfPortfolio.csv', "wb")
     fo.write('Price,Today,At Expiry\n')
     for x in results:
         fo.write(str(x) + '\n');
