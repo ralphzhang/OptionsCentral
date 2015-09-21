@@ -5,7 +5,8 @@ Outstanding Issues:
 4. volatility simulator
 5. visualization
 6. save strategy for future access
-
+7. add market risk greeks to strategy simulator, in addition to payoff curve, also show delta, gamma and vega
+8. show exposures and explaination 
 
 Content Preparations:
 1. Basic options descriptions
