@@ -68,4 +68,3 @@ class BlackScholesCalculator:
 			rho = -1 * strike * expiryYears * math.exp(-riskfreeRate * expiryYears) * norm.cdf(-d2)
 		
 		return rho;
-# end of file
