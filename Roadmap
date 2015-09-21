@@ -1,0 +1,31 @@
+Outstanding Issues:
+1. change 365 calendar day to 252 trading days
+
+
+Product Features:
+1. Valuation Models supported
+- Blacksholes (for European options)
+- Monte Carlo
+- Binomial Trees
+
+2. Basic Blacksholes options calculator
+- give all inputs, geenrate call/put prices, and greeks
+- give options prices, invert IV
+
+3. Options strategies/portfolios visualization and simulation
+
+4. Excel add-in for multiple options valuation in spreadsheet
+
+5. Construction of volatility surface, yield curve
+
+6. Extends valuation based on volatiilty surface and yield curve
+
+7. Historical or real-time data feeding
+
+8. Portfolio construction and tracking/simulation/risk analytics
+
+9. Volatility data services:
+- historical vols
+- vol surfaces
+
+10. Trading strategy analysis and trading signals
