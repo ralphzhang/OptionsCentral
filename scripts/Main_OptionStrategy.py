@@ -8,7 +8,7 @@ Created on Sat Sep 19 09:06:49 2015
 import sys
 sys.dont_write_bytecode = True
 
-import pandas
+import pandas as pd
 
 from model.BlackScholesCalculator import *
 
@@ -20,8 +20,8 @@ def getProfitValue(type, stockPrice, strike):
         
             
 def main():
-    PortfolioData= '../Strategy/' + 'Long Butterfly.csv'
-    #PortfolioData = '../Strategy/' + 'Bear Put Spread.csv'
+    PortfolioData = '../Strategy/' + 'Bear Put Spread.csv'
+    # PortfolioData = '../Strategy/' + 'Bear Put Spread.csv'
 
     try:
         qd = open(PortfolioData, 'r')
@@ -51,16 +51,15 @@ def main():
     
     priceStep = (float(plMax) - float(plMin)) / 36.0
 
-    data = pandas.io.parsers.read_csv(PortfolioData, sep=',', header=2, na_values=' ')
+    data = pd.io.parsers.read_csv(PortfolioData, sep=',', header=2, na_values=' ')
     print data.tail(9)
 
     plCurrent = plMin
-    results = []
+    results = pd.DataFrame([], columns=list('ABC'))
     
     while (plCurrent <= plMax):
         todayValue = 0
         expiryValue = 0
-        
         totalPremium = 0
         
         for i in data.index:
@@ -73,35 +72,31 @@ def main():
 
             totalPremium += float(data.Primium[i]) * positionFactor * quantity
                 
-            theTodayValue = bs.getValue(data.Buy_Sell[i].lower(),
+            theTodayValue = bs.getValue(data.Call_Put_Stock[i].lower(),
                                 plCurrent,
                                 float(data.Strike[i]),
                                 plVolatility,
                                 (float(data.ExpiryDays[i]) - daysFromToday) / 365.0,
                                 riskfreeRate)
                                 
-            theExpiryValue = getProfitValue(data.Buy_Sell[i].lower(),
+            theExpiryValue = getProfitValue(data.Call_Put_Stock[i].lower(),
                                 plCurrent,
                                 float(data.Strike[i]))
             
             todayValue += theTodayValue * positionFactor * quantity
             expiryValue += theExpiryValue * positionFactor * quantity
             
-            print plCurrent, i, ':', theTodayValue, todayValue
+            print plCurrent, i, ':', theExpiryValue, expiryValue
 
-        results.append(str(plCurrent) + ',' + \
-            str(todayValue - totalPremium) + ',' + str(expiryValue - totalPremium))
+        theResult = pd.DataFrame([[plCurrent, todayValue - totalPremium, expiryValue - totalPremium]], columns=list('ABC'))
+        results = results.append(theResult)
         
         plCurrent += priceStep
         
-    print results
+    print results.tail(10)
+    
+    results.plot(x='A', y=list('BC'))
         
-    fo = open('../results/' + 'ResultOfPortfolio.csv', "wb")
-    fo.write('Price,Today,At Expiry\n')
-    for x in results:
-        fo.write(str(x) + '\n');
-    fo.close()
-
     
 if __name__ == "__main__":
     main()
