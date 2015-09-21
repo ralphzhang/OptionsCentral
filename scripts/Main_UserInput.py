@@ -5,7 +5,7 @@ Created on Thu Sep 17 12:55:25 2015
 @author: ka
 """
 
-from EuropeanOptions import *
+from entity.EuropeanOptions import *
 from model.BlackScholesCalculator import *
 
 bs = BlackScholesCalculator()

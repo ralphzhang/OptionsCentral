@@ -7,7 +7,7 @@ Created on Thu Sep 17 19:18:13 2015
 
 import pandas
 
-from EuropeanOptions import *
+from entity.EuropeanOptions import *
 from model.NewtonRaphson import *
 
 nr = NewtonRaphson()
