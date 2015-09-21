@@ -26,7 +26,7 @@ def getStockPrice(x):
 def getRiskfreeRate(x):
     return float(0.02)
 
-QuoteData= 'SPY_OPT_20150216.csv'
+QuoteData= 'MarketData/' + 'SPY_OPT_20150216.csv'
 data = pandas.io.parsers.read_csv(QuoteData, sep=',', header=0, na_values=' ')
 data = data.fillna(0.0)
 
