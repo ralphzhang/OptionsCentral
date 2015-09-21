@@ -20,8 +20,8 @@ def getProfitValue(type, stockPrice, strike):
         
             
 def main():
-    # PortfolioData= 'Strategy/' + 'Long Butterfly.csv'
-    PortfolioData = '../Strategy/' + 'Bear Put Spread.csv'
+    PortfolioData= '../Strategy/' + 'Long Butterfly.csv'
+    #PortfolioData = '../Strategy/' + 'Bear Put Spread.csv'
 
     try:
         qd = open(PortfolioData, 'r')
