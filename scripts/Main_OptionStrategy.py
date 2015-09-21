@@ -18,7 +18,7 @@ def getProfitValue(type, stockPrice, strike):
             
 def main():
     #PortfolioData= 'Strategy/' + 'Long Butterfly.csv'
-    PortfolioData= 'Strategy/' + 'Bear Put Spread.csv'
+    PortfolioData= '../Strategy/' + 'Bear Put Spread.csv'
 
     try:
         qd = open(PortfolioData, 'r')
@@ -93,7 +93,7 @@ def main():
         
     print results
         
-    fo = open('results/' + 'ResultOfPortfolio.csv', "wb")
+    fo = open('../results/' + 'ResultOfPortfolio.csv', "wb")
     fo.write('Price,Today,At Expiry\n')
     for x in results:
         fo.write(str(x) + '\n');

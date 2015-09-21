@@ -26,7 +26,7 @@ def getStockPrice(x):
 def getRiskfreeRate(x):
     return float(0.02)
 
-QuoteData= 'MarketData/' + 'SPY_OPT_20150216.csv'
+QuoteData= '../MarketData/' + 'SPY_OPT_20150216.csv'
 data = pandas.io.parsers.read_csv(QuoteData, sep=',', header=0, na_values=' ')
 data = data.fillna(0.0)
 
@@ -54,5 +54,5 @@ for i in data.index:
 print('Calculated Implied Vol for %d Options' % len(data.index))
 data = data.join(impvol)
 
-data.to_csv('results/' + 'Result_Data.csv')
+data.to_csv('../results/' + 'Result_Data.csv')
 print('Calculating Result has been saved to \"Result_Data.csv\"')
