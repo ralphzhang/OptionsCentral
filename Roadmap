@@ -1,5 +1,10 @@
 Outstanding Issues:
 1. change 365 calendar day to 252 trading days
+2. strategy files - primimum, as well as Main_OptionStrategy
+3. maturity simulator
+4. volatility simulator
+5. visualization
+6. save strategy for future access
 
 
 Product Features:
