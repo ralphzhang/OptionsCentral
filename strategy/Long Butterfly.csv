@@ -1,6 +1,0 @@
-﻿Stock,100,0.02,European
-P_L,0,0.3,0.02,70,130
-Row,Buy_Sell,Quantity,Call_Put_Stock,Strike,ExpiryDays,Volatility,Primium
-Position,Buy,1,Call,90,365,0.3,18.0691
-Position,Sell,2,Call,100,365,0.3,12.8216
-Position,Buy,1,Call,110,365,0.3,8.8641
