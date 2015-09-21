@@ -5,6 +5,9 @@ Created on Thu Sep 17 12:55:25 2015
 @author: ka
 """
 
+import sys
+sys.dont_write_bytecode = True
+
 from entity.EuropeanOptions import *
 from model.BlackScholesCalculator import *
 

@@ -5,6 +5,9 @@ Created on Thu Sep 17 19:18:13 2015
 @author: ka
 """
 
+import sys
+sys.dont_write_bytecode = True
+
 import pandas
 
 from entity.EuropeanOptions import *

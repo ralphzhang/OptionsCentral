@@ -5,8 +5,10 @@ Created on Sat Sep 19 09:06:49 2015
 @author: ka
 """
 
-import pandas
 import sys
+sys.dont_write_bytecode = True
+
+import pandas
 
 from model.BlackScholesCalculator import *
 
