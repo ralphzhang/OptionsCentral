@@ -6,8 +6,9 @@ Created on Thu Sep 17 19:18:13 2015
 """
 
 import pandas
-from NewtonRaphson import *
+
 from EuropeanOptions import *
+from model.NewtonRaphson import *
 
 nr = NewtonRaphson()
 

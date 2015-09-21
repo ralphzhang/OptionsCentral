@@ -5,7 +5,7 @@ Created on Thu Sep 17 18:38:11 2015
 @author: ka
 """
 
-from BlackScholesCalculator import *
+from model.BlackScholesCalculator import *
 
 
 class NewtonRaphson:

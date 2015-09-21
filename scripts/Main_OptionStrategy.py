@@ -7,7 +7,8 @@ Created on Sat Sep 19 09:06:49 2015
 
 import pandas
 import sys
-from BlackScholesCalculator import *
+
+from model.BlackScholesCalculator import *
 
 def getProfitValue(type, stockPrice, strike):
     if type == 'call':

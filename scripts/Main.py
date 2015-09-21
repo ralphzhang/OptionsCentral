@@ -6,7 +6,7 @@ Created on Thu Sep 17 12:55:25 2015
 """
 
 from EuropeanOptions import *
-from BlackScholesCalculator import *
+from model.BlackScholesCalculator import *
 
 bs = BlackScholesCalculator()
 
